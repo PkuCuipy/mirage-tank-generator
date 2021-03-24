@@ -11,7 +11,7 @@ weight_lerp_black_B = 0.0
 weight_lerp_grey_B = 0.0
 
 # Axes for showing images
-plt.figure(figsize=[7, 7])
+fig = plt.figure(figsize=[7, 7])
 I_W_ax = plt.subplot(3,2,1)
 I_B_ax = plt.subplot(3,2,2)
 Preview_W_ax = plt.subplot(3,2,3)
@@ -28,8 +28,8 @@ bB_slider = Slider(bB_ax, 'lerp black', valmin=0.0, valmax=1.0, valinit=0.0, val
 gB_slider = Slider(gB_ax, 'lerp grey', valmin=0.0, valmax=1.0, valinit=0.0, valstep=0.001)
 
 # Open in RGB mode
-I_W_path = "./imgs/tieba_surface.png"
-I_B_path = "./imgs/tieba_hidden.png"
+I_W_path = "./imgs/fast_surface.png"
+I_B_path = "./imgs/fast_hidden.png"
 I_W = Image.open(I_W_path).convert('RGB')
 I_B = Image.open(I_B_path).convert('RGB')
 
