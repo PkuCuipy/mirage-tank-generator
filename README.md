@@ -1,17 +1,28 @@
-# Mirage-Tank-Generate
-Mix 2 images A & B in a single PNG image M, 
-where M will looks like A under the "black" background color, 
-and looks like B under the white background color. 
+# Mirage Tank Generator / 幻影坦克生成器
 
-Notes that you need to do some fine-tuning yourself (i.e. you need to modify the parameters in a GUI window), 
-for it's not always possible to have the perfect M existed. 
+## 什么是 ｢幻影坦克｣
 
-## Usage:
+这里 ｢幻影坦克｣ 特指一种隐写图片, 当放置它在白色背景下会显现出一张图, 当放置在黑色背景下会显现出另一张图片. 
 
-1. Download this repository.
-2. Make sure these dependencies exist:
-    - PIL
-    - NumPy
-    - matplotlib
-3. Run main.py
-4. Drag 4 sliders below, until you are satisfied. (It might be slow due to poor coding though..)
+## 原理
+
+幻影坦克的 ｢呈现原理｣ 很简单——因为这张图是 ｢半透明的｣, 所以这张图所处的 ｢背景色｣ 会参与构成这张图的颜色图像.
+至于幻影坦克的 ｢构造方式｣, 这在经过一些 (相对容易的) 数学推导后就可以得到. 
+
+## 限制
+
+直观上看 (在数学推导中也会发现) 这种隐写并不能隐藏任意两张图. 
+比如你无法构造一个幻影坦克, 使得它在白色背景下呈现一张夜景图, 而在黑色背景下呈现一张很亮的图!
+
+> 直观上的证明: 
+> 试想, 如果你想让这张图在白色背景下呈现黑色, 那么 a.｢像素颜色是黑色｣ 和 b.｢不透明度很高｣ 两个要求显然缺一不可! 
+> 另一方面, 如果你想让这张图在黑色背景下呈现白色, 那么 c.｢像素颜色是白色｣ 和 d.｢不透明度很高｣ 两个要求也缺一不可. 
+> 然而注意到 a 和 c 构成矛盾. 因此无法构造出满足要求的幻影坦克.
+
+## 关于本项目
+
+- 基于 Python 构建, 包括 Numpy, PIL, matplotlib 等.
+- 支持 GUI 交互方式构造幻影坦克. 
+  这是考虑到将任意两张图片隐写到一张幻影坦克中, 在数学上往往是无解的 (见[限制](#限制)), 因此需要人来做出权衡. 
+  本项目提供的 GUI 可以在绝大多数情况下帮助构建出较好的结果.
+- 程序入口: `main.py`.
